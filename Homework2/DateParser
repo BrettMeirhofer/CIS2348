@@ -1,0 +1,30 @@
+import datetime
+
+date = ""
+while (date != "exit"):
+    datestring = input()
+    month = 0
+    year = 0
+    day = 0
+    if(datestring[-4:].isdigit()):
+        year = int(datestring[-4:])
+        datestring = datestring.replace(datestring[-4:], "")
+
+    for count,monthstring in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"]):
+      if(datestring.find(monthstring)>-1):
+        datestring = datestring.replace(monthstring, "")
+        month = count+1
+        break
+    datestring = datestring.replace(" ", "")
+    datestring = datestring.replace(",", "")
+    if(datestring.isdigit()):
+        day = int(datestring)
+
+    if(month>0 and year>0 and day>0):
+        inputdate = datetime.datetime(year,month,day)
+        currentdate = datetime.datetime.now()
+        if (inputdate<= currentdate):
+            print("{}/{}/{}".format(inputdate.month,inputdate.day,inputdate.year))
+
+
+print("Exited")
