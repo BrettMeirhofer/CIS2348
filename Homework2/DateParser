@@ -1,8 +1,11 @@
 import datetime
 
 date = ""
-while (date != "exit"):
-    datestring = input()
+file = open("InputDates.txt")
+lines = file.readlines()
+for datestring in lines:
+    datestring = datestring.replace("\n", "")
+
     month = 0
     year = 0
     day = 0
@@ -15,6 +18,7 @@ while (date != "exit"):
         datestring = datestring.replace(monthstring, "")
         month = count+1
         break
+
     datestring = datestring.replace(" ", "")
     datestring = datestring.replace(",", "")
     if(datestring.isdigit()):
@@ -27,4 +31,4 @@ while (date != "exit"):
             print("{}/{}/{}".format(inputdate.month,inputdate.day,inputdate.year))
 
 
-print("Exited")
+file.close()
