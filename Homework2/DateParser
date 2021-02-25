@@ -5,7 +5,7 @@ while (date != "exit"):
     datestring = input()
     month = 0
     year = 0
-    day = 0
+    
     if(datestring[-4:].isdigit()):
         year = int(datestring[-4:])
         datestring = datestring.replace(datestring[-4:], "")
