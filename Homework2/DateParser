@@ -2,6 +2,7 @@ import datetime
 
 date = ""
 file = open("InputDates.txt")
+outputfile = open("parsedDates.txt", "w")
 lines = file.readlines()
 for datestring in lines:
     datestring = datestring.replace("\n", "")
@@ -29,6 +30,8 @@ for datestring in lines:
         currentdate = datetime.datetime.now()
         if (inputdate<= currentdate):
             print("{}/{}/{}".format(inputdate.month,inputdate.day,inputdate.year))
+            outputfile.write("{}/{}/{}\n".format(inputdate.month,inputdate.day,inputdate.year))
 
 
 file.close()
+outputfile.close()
